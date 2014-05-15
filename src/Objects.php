@@ -13,9 +13,9 @@ use Closure;
 class Objects
 {
     /**
-     * @param  array   $arr
-     * @param  array   $arr2
-     * @param  Closure $yield
+     * @param  array            $arr
+     * @param  array            $arr2
+     * @param  Closure          $yield
      * @return SplObjectStorage
      */
     public static function combineArrays(array $arr, array $arr2, Closure $yield)
@@ -34,9 +34,9 @@ class Objects
     }
 
     /**
-     * @param  array   $arr
-     * @param  array   $arr2
-     * @param  Closure $yield
+     * @param  array            $arr
+     * @param  array            $arr2
+     * @param  Closure          $yield
      * @return SplObjectStorage
      */
     public static function groupCombineArrays(array $arr, array $arr2, Closure $yield)
@@ -55,9 +55,9 @@ class Objects
     }
 
     /**
-     * @param SplObjectStorage $storage
-     * @param mixed           $parent
-     * @param mixed           $child
+     * @param  SplObjectStorage $storage
+     * @param  mixed            $parent
+     * @param  mixed            $child
      * @return SplObjectStorage
      */
     public static function addNested(SplObjectStorage $storage, $parent, $child)
@@ -84,6 +84,7 @@ class Objects
         foreach ($storage as $item) {
             $result[$item->{$property}] = $item;
         }
+
         return $result;
     }
 

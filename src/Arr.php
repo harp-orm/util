@@ -10,7 +10,7 @@ namespace CL\Util;
 class Arr
 {
     /**
-     * @param  array  $array
+     * @param  array $array
      * @return array
      */
     public static function toAssoc(array $array)
@@ -79,7 +79,7 @@ class Arr
     }
 
     /**
-     * @param  array  $array
+     * @param  array $array
      * @return array
      */
     public static function flatten(array $array)
@@ -98,9 +98,9 @@ class Arr
     }
 
     /**
-     * @param  array  $array
-     * @param  Closure|string|array  $callback
-     * @param  boolean $preserveKeys
+     * @param  array                $array
+     * @param  Closure|string|array $callback
+     * @param  boolean              $preserveKeys
      * @return array
      */
     public static function groupBy($array, $callback, $preserveKeys = false)

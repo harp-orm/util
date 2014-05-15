@@ -201,18 +201,18 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
         $result->attach($obj1);
         $result->attach($obj3);
 
-        return [
-            [
+        return array(
+            array(
                 new SplObjectStorage(),
                 $callback,
                 new SplObjectStorage(),
-            ],
-            [
+            ),
+            array(
                 $objects,
                 $callback,
                 $result,
-            ],
-        ];
+            ),
+        );
     }
 
     /**

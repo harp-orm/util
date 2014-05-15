@@ -12,9 +12,9 @@ Array Helpers
 -------------
 
 - __toAssoc__ - convert a random array to a strict structure - every entry has a string key
-- __invoke__ -
-- __pluckProperty__ -
-- __pluckUniqueProperty__ -
+- __invoke__ - if the array holds only objects, aggregate the results of a method call on all the objects
+- __pluckProperty__ - aggregate the value of a property of each object in the array
+- __pluckUniqueProperty__ - aggregate the value of a property of each object in the array, only unique values
 - __pluck__ -
 - __flatten__ -
 - __groupBy__ -
