@@ -80,7 +80,7 @@ class Objects
      */
     public static function index(SplObjectStorage $storage, $property)
     {
-        $result = [];
+        $result = array();
         foreach ($storage as $item) {
             $result[$item->{$property}] = $item;
         }
@@ -94,7 +94,7 @@ class Objects
      */
     public static function invoke(SplObjectStorage $storage, $method)
     {
-        $mapped = [];
+        $mapped = array();
 
         foreach ($storage as $object) {
             $mapped []= $object->$method();
@@ -127,7 +127,7 @@ class Objects
      */
     public static function toArray(SplObjectStorage $storage)
     {
-        $items = [];
+        $items = array();
 
         foreach ($storage as $item) {
             $items []= $item;

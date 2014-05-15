@@ -87,7 +87,7 @@ class Arr
         $result = array();
 
         array_walk_recursive($array, function ($value, $key) use (& $result) {
-            if (is_numeric($key) OR is_object($value)) {
+            if (is_numeric($key) or is_object($value)) {
                 $result[] = $value;
             } else {
                 $result[$key] = $value;

@@ -9,28 +9,28 @@ class ArrTest extends PHPUnit_Framework_TestCase
 {
     public function dataToAssoc()
     {
-        return [
-            [
-                [],
-                [],
-            ],
-            [
-                ['test'],
-                ['test' => null],
-            ],
-            [
-                ['test' => []],
-                ['test' => []],
-            ],
-            [
-                ['test' => 'test2'],
-                ['test' => ['test2' => null]],
-            ],
-            [
-                ['test' => ['test2' => ['test3' => 'test4'], 'test5' => 'test6']],
-                ['test' => ['test2' => ['test3' => ['test4' => null]], 'test5' => ['test6' => null]]],
-            ],
-        ];
+        return array(
+            array(
+                array(),
+                array(),
+            ),
+            array(
+                array('test'),
+                array('test' => null),
+            ),
+            array(
+                array('test' => array()),
+                array('test' => array()),
+            ),
+            array(
+                array('test' => 'test2'),
+                array('test' => array('test2' => null)),
+            ),
+            array(
+                array('test' => array('test2' => array('test3' => 'test4'), 'test5' => 'test6')),
+                array('test' => array('test2' => array('test3' => array('test4' => null)), 'test5' => array('test6' => null))),
+            ),
+        );
     }
 
     /**
@@ -44,23 +44,23 @@ class ArrTest extends PHPUnit_Framework_TestCase
 
     public function dataInvoke()
     {
-        return [
-            [
-                [],
+        return array(
+            array(
+                array(),
                 'test',
-                [],
-            ],
-            [
-                [new TestObject(), new TestObject()],
+                array(),
+            ),
+            array(
+                array(new TestObject(), new TestObject()),
                 'test',
-                ['result', 'result'],
-            ],
-            [
-                [new TestObject(), new TestObject()],
+                array('result', 'result'),
+            ),
+            array(
+                array(new TestObject(), new TestObject()),
                 'test2',
-                ['result2', 'result2'],
-            ],
-        ];
+                array('result2', 'result2'),
+            ),
+        );
     }
 
     /**
@@ -74,23 +74,23 @@ class ArrTest extends PHPUnit_Framework_TestCase
 
     public function dataPluckProperty()
     {
-        return [
-            [
-                [],
+        return array(
+            array(
+                array(),
                 'test',
-                [],
-            ],
-            [
-                [new TestObject(), new TestObject()],
+                array(),
+            ),
+            array(
+                array(new TestObject(), new TestObject()),
                 'prop1',
-                [1, 1],
-            ],
-            [
-                [new TestObject(), new TestObject()],
+                array(1, 1),
+            ),
+            array(
+                array(new TestObject(), new TestObject()),
                 'prop2',
-                [2, 2],
-            ],
-        ];
+                array(2, 2),
+            ),
+        );
     }
 
     /**
@@ -104,23 +104,23 @@ class ArrTest extends PHPUnit_Framework_TestCase
 
     public function dataPluckUniqueProperty()
     {
-        return [
-            [
-                [],
+        return array(
+            array(
+                array(),
                 'test',
-                [],
-            ],
-            [
-                [new TestObject(), new TestObject()],
+                array(),
+            ),
+            array(
+                array(new TestObject(), new TestObject()),
                 'prop1',
-                [1],
-            ],
-            [
-                [new TestObject(), new TestObject()],
+                array(1),
+            ),
+            array(
+                array(new TestObject(), new TestObject()),
                 'prop2',
-                [2],
-            ],
-        ];
+                array(2),
+            ),
+        );
     }
 
     /**
@@ -134,18 +134,18 @@ class ArrTest extends PHPUnit_Framework_TestCase
 
     public function dataPluck()
     {
-        return [
-            [
-                [],
+        return array(
+            array(
+                array(),
                 'test',
-                [],
-            ],
-            [
-                [['atr' => 10, 'test' => 2], ['atr' => 10, 'test' => 5]],
+                array(),
+            ),
+            array(
+                array(array('atr' => 10, 'test' => 2), array('atr' => 10, 'test' => 5)),
                 'test',
-                [2, 5],
-            ]
-        ];
+                array(2, 5),
+            )
+        );
     }
 
     /**
@@ -161,24 +161,24 @@ class ArrTest extends PHPUnit_Framework_TestCase
     {
         $obj = new TestObject();
 
-        return [
-            [
-                [],
-                [],
-            ],
-            [
-                [['atr' => 10, 'test' => 2], [20]],
-                ['atr' => 10, 'test' => 2, 20],
-            ],
-            [
-                [['atr' => 10, 'test' => 2], [20]],
-                ['atr' => 10, 'test' => 2, 20],
-            ],
-            [
-                [['atr' => 10, $obj, 'test' => ['param' => 'test', 'test2' => [30, 50]]], [20, 'test' => ['test8' => 12]]],
-                ['atr' => 10, $obj, 'param' => 'test', 30, 50, 20, 'test8' => 12],
-            ]
-        ];
+        return array(
+            array(
+                array(),
+                array(),
+            ),
+            array(
+                array(array('atr' => 10, 'test' => 2), array(20)),
+                array('atr' => 10, 'test' => 2, 20),
+            ),
+            array(
+                array(array('atr' => 10, 'test' => 2), array(20)),
+                array('atr' => 10, 'test' => 2, 20),
+            ),
+            array(
+                array(array('atr' => 10, $obj, 'test' => array('param' => 'test', 'test2' => array(30, 50))), array(20, 'test' => array('test8' => 12))),
+                array('atr' => 10, $obj, 'param' => 'test', 30, 50, 20, 'test8' => 12),
+            )
+        );
     }
 
     /**
@@ -196,26 +196,26 @@ class ArrTest extends PHPUnit_Framework_TestCase
             return substr($item, 0, 1);
         };
 
-        return [
-            [
-                ['alpha', 'beta', 'gamma', 'getto', 'atton'],
+        return array(
+            array(
+                array('alpha', 'beta', 'gamma', 'getto', 'atton'),
                 $callback,
                 false,
-                ['a' => ['alpha', 'atton'], 'b' => ['beta'], 'g' => ['gamma', 'getto']]
-            ],
-            [
-                ['test1', 'test2', 'test3', '2222', '3333'],
+                array('a' => array('alpha', 'atton'), 'b' => array('beta'), 'g' => array('gamma', 'getto'))
+            ),
+            array(
+                array('test1', 'test2', 'test3', '2222', '3333'),
                 $callback,
                 false,
-                ['t' => ['test1', 'test2', 'test3'], '2' => ['2222'], '3' => ['3333']]
-            ],
-            [
-                [3 => 'test1', 10 => 'test2', 20 => 'test3', 80 => '2222', 15 => '3333'],
+                array('t' => array('test1', 'test2', 'test3'), '2' => array('2222'), '3' => array('3333'))
+            ),
+            array(
+                array(3 => 'test1', 10 => 'test2', 20 => 'test3', 80 => '2222', 15 => '3333'),
                 $callback,
                 true,
-                ['t' => [3 => 'test1', 10 => 'test2', 20 => 'test3'], '2' => [80 => '2222'], '3' => [15 => '3333']]
-            ],
-        ];
+                array('t' => array(3 => 'test1', 10 => 'test2', 20 => 'test3'), '2' => array(80 => '2222'), '3' => array(15 => '3333'))
+            ),
+        );
     }
 
     /**

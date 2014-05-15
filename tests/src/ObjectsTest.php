@@ -14,23 +14,23 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
         $objects->attach(new TestObject());
         $objects->attach(new TestObject());
 
-        return [
-            [
+        return array(
+            array(
                 new SplObjectStorage(),
                 'test',
-                [],
-            ],
-            [
+                array(),
+            ),
+            array(
                 $objects,
                 'test',
-                ['result', 'result'],
-            ],
-            [
+                array('result', 'result'),
+            ),
+            array(
                 $objects,
                 'test2',
-                ['result2', 'result2'],
-            ],
-        ];
+                array('result2', 'result2'),
+            ),
+        );
     }
 
     /**
@@ -58,20 +58,20 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
         $result[$obj1] = $obj5;
         $result[$obj2] = $obj3;
 
-        return [
-            [
-                [],
-                [],
+        return array(
+            array(
+                array(),
+                array(),
                 $callback,
                 new SplObjectStorage(),
-            ],
-            [
-                [$obj1, $obj2, $obj4],
-                [$obj5, $obj3],
+            ),
+            array(
+                array($obj1, $obj2, $obj4),
+                array($obj5, $obj3),
                 $callback,
                 $result,
-            ],
-        ];
+            ),
+        );
     }
 
     /**
@@ -96,23 +96,23 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
         $obj5 = new TestObject(1);
 
         $result = new SplObjectStorage();
-        $result[$obj1] = [$obj5];
-        $result[$obj2] = [$obj3, $obj4];
+        $result[$obj1] = array($obj5);
+        $result[$obj2] = array($obj3, $obj4);
 
-        return [
-            [
-                [],
-                [],
+        return array(
+            array(
+                array(),
+                array(),
                 $callback,
                 new SplObjectStorage(),
-            ],
-            [
-                [$obj1, $obj2],
-                [$obj5, $obj3, $obj4],
+            ),
+            array(
+                array($obj1, $obj2),
+                array($obj5, $obj3, $obj4),
                 $callback,
                 $result,
-            ],
-        ];
+            ),
+        );
     }
 
     /**
@@ -138,14 +138,14 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
         $result = Objects::addNested($objects, $obj1, $obj2);
 
         $expected = new SplObjectStorage();
-        $expected[$obj1] = [$obj2];
+        $expected[$obj1] = array($obj2);
 
         $this->assertEquals($expected, $result);
 
         $result = Objects::addNested($objects, $obj1, $obj3);
 
         $expected = new SplObjectStorage();
-        $expected[$obj1] = [$obj2, $obj3];
+        $expected[$obj1] = array($obj2, $obj3);
 
         $this->assertEquals($expected, $result);
     }
@@ -161,16 +161,16 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
         $objects->attach($obj2);
         $objects->attach($obj3);
 
-        return [
-            [
+        return array(
+            array(
                 new SplObjectStorage(),
-                [],
-            ],
-            [
+                array(),
+            ),
+            array(
                 $objects,
-                [1 => $obj1, 2 => $obj2, 3 => $obj3],
-            ],
-        ];
+                array(1 => $obj1, 2 => $obj2, 3 => $obj3),
+            ),
+        );
     }
 
     /**
@@ -238,25 +238,25 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
         $objects->attach($obj2);
         $objects->attach($obj3);
 
-        $expected = [$obj1, $obj2, $obj3];
+        $expected = array($obj1, $obj2, $obj3);
 
         $this->assertEquals($expected, Objects::toArray($objects));
     }
 
     public function dataGroupBy()
     {
-        return [
-            [
-                ['alpha', 'beta', 'gamma', 'getto', 'atton'],
+        return array(
+            array(
+                array('alpha', 'beta', 'gamma', 'getto', 'atton'),
                 $callback,
-                ['a' => ['alpha', 'atton'], 'b' => ['beta'], 'g' => ['gamma', 'getto']]
-            ],
-            [
-                ['test1', 'test2', 'test3', '2222', '3333'],
+                array('a' => array('alpha', 'atton'), 'b' => array('beta'), 'g' => array('gamma', 'getto'))
+            ),
+            array(
+                array('test1', 'test2', 'test3', '2222', '3333'),
                 $callback,
-                ['t' => ['test1', 'test2', 'test3'], '2' => ['2222'], '3' => ['3333']]
-            ],
-        ];
+                array('t' => array('test1', 'test2', 'test3'), '2' => array('2222'), '3' => array('3333'))
+            ),
+        );
     }
 
     /**
