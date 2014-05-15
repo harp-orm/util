@@ -11,6 +11,15 @@ General purpose helper methods
 Array Helpers
 -------------
 
+- __toAssoc__ - convert a random array to a strict structure - every entry has a string key
+- __invoke__ -
+- __pluckProperty__ -
+- __pluckUniqueProperty__ -
+- __pluck__ -
+- __flatten__ -
+- __groupBy__ -
+
+
 ## License
 
 Copyright (c) 2014, Clippings Ltd. Developed by Ivan Kerin
