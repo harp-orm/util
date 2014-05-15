@@ -8,6 +8,9 @@ Util
 
 General purpose helper methods
 
+Array Helpers
+-------------
+
 ## License
 
 Copyright (c) 2014, Clippings Ltd. Developed by Ivan Kerin
