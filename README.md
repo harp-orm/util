@@ -19,6 +19,16 @@ Array Helpers
 - __flatten__ - flatten all the values of nested arrays
 - __groupBy__ - group by result of callback
 
+SplObjectStorage Helpers
+------------------------
+- __combineArrays__ - combine two arrays into an SplObjectStorage, based on a callback
+- __groupCombineArrays__ - combine two arrays into an SplObjectStorage, based on a callback, multiple entries are combined into an array
+- __addNested__ - used by groupCombineArrays
+- __index__ - convert an SplObjectStorage to an array, for a given property value of the objects as a key
+- __invoke__ - aggregate the results of a method call on all the objects
+- __filter__ - similar to array_filter, but for SplObjectStorage
+- __toArray__ - convert SplObjectStorage into an array
+- __groupBy__ - change SplObjectStorage where the "key" object is the result of a callback, and all the other objects are grouped by them
 
 ## License
 
