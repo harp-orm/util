@@ -13,67 +13,6 @@ use Closure;
 class Objects
 {
     /**
-     * @param  array            $arr
-     * @param  array            $arr2
-     * @param  Closure          $yield
-     * @return SplObjectStorage
-     */
-    public static function combineArrays(array $arr, array $arr2, Closure $yield)
-    {
-        $items = new SplObjectStorage();
-
-        foreach ($arr as $item) {
-            foreach ($arr2 as $item2) {
-                if ($yield($item, $item2)) {
-                    $items->attach($item, $item2);
-                }
-            }
-        }
-
-        return $items;
-    }
-
-    /**
-     * @param  array            $arr
-     * @param  array            $arr2
-     * @param  Closure          $yield
-     * @return SplObjectStorage
-     */
-    public static function groupCombineArrays(array $arr, array $arr2, Closure $yield)
-    {
-        $groups = new SplObjectStorage();
-
-        foreach ($arr as $item) {
-            foreach ($arr2 as $item2) {
-                if ($yield($item, $item2)) {
-                    self::addNested($groups, $item, $item2);
-                }
-            }
-        }
-
-        return $groups;
-    }
-
-    /**
-     * @param  SplObjectStorage $storage
-     * @param  mixed            $parent
-     * @param  mixed            $child
-     * @return SplObjectStorage
-     */
-    public static function addNested(SplObjectStorage $storage, $parent, $child)
-    {
-        $current = $storage->contains($parent)
-            ? $storage[$parent]
-            : array();
-
-        array_push($current, $child);
-
-        $storage[$parent] = $current;
-
-        return $storage;
-    }
-
-    /**
      * @param  SplObjectStorage $storage
      * @param  string           $property
      * @return arrau
