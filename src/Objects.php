@@ -1,6 +1,6 @@
 <?php
 
-namespace CL\Util;
+namespace Harp\Util;
 
 use SplObjectStorage;
 use Closure;
@@ -12,21 +12,6 @@ use Closure;
  */
 class Objects
 {
-    /**
-     * @param  SplObjectStorage $storage
-     * @param  string           $property
-     * @return arrau
-     */
-    public static function index(SplObjectStorage $storage, $property)
-    {
-        $result = array();
-        foreach ($storage as $item) {
-            $result[$item->{$property}] = $item;
-        }
-
-        return $result;
-    }
-
     /**
      * @param  SplObjectStorage $storage
      * @param  string           $method

@@ -1,6 +1,6 @@
 <?php
 
-namespace CL\Util;
+namespace Harp\Util;
 
 use Closure;
 

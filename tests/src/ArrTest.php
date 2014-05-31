@@ -1,8 +1,8 @@
 <?php
 
-namespace CL\Util\Test;
+namespace Harp\Util\Test;
 
-use CL\Util\Arr;
+use Harp\Util\Arr;
 use PHPUnit_Framework_TestCase;
 
 class ArrTest extends PHPUnit_Framework_TestCase
@@ -34,7 +34,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Arr::toAssoc
+     * @covers Harp\Util\Arr::toAssoc
      * @dataProvider dataToAssoc
      */
     public function testToAssoc($array, $expected)
@@ -64,7 +64,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Arr::invoke
+     * @covers Harp\Util\Arr::invoke
      * @dataProvider dataInvoke
      */
     public function testInvoke($array, $methodName, $expected)
@@ -94,7 +94,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Arr::pluckProperty
+     * @covers Harp\Util\Arr::pluckProperty
      * @dataProvider dataPluckProperty
      */
     public function testPluckProperty($array, $property, $expected)
@@ -124,7 +124,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Arr::pluckUniqueProperty
+     * @covers Harp\Util\Arr::pluckUniqueProperty
      * @dataProvider dataPluckUniqueProperty
      */
     public function testPluckUniqueProperty($array, $property, $expected)
@@ -149,7 +149,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Arr::pluck
+     * @covers Harp\Util\Arr::pluck
      * @dataProvider dataPluck
      */
     public function testPluck($array, $property, $expected)
@@ -182,7 +182,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Arr::flatten
+     * @covers Harp\Util\Arr::flatten
      * @dataProvider dataFlatten
      */
     public function testFlatten($array, $expected)

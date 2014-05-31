@@ -1,8 +1,8 @@
 <?php
 
-namespace CL\Util\Test;
+namespace Harp\Util\Test;
 
-use CL\Util\Objects;
+use Harp\Util\Objects;
 use SplObjectStorage;
 use PHPUnit_Framework_TestCase;
 
@@ -34,7 +34,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Objects::invoke
+     * @covers Harp\Util\Objects::invoke
      * @dataProvider dataInvoke
      */
     public function testInvoke($array, $methodName, $expected)
@@ -108,7 +108,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Objects::filter
+     * @covers Harp\Util\Objects::filter
      * @dataProvider dataFilter
      */
     public function testFilter($objects, $callback, $expected)
@@ -117,7 +117,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Objects::toArray
+     * @covers Harp\Util\Objects::toArray
      */
     public function testToArray()
     {
@@ -152,7 +152,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers CL\Util\Objects::groupBy
+     * @covers Harp\Util\Objects::groupBy
      */
     public function testGroupBy()
     {

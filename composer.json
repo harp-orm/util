@@ -10,6 +10,6 @@
         }
     ],
     "autoload": {
-        "psr-4": {"CL\\Util\\": "src/"}
+        "psr-4": {"Harp\\Util\\": "src/"}
     }
 }

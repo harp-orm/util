@@ -1,6 +1,6 @@
 <?php
 
-namespace CL\Util\Test;
+namespace Harp\Util\Test;
 
 class TestObject
 {
