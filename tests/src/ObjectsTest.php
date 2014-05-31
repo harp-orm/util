@@ -42,38 +42,6 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
         $this->assertSame($expected, Objects::invoke($array, $methodName));
     }
 
-    public function dataIndex()
-    {
-        $objects = new SplObjectStorage();
-        $obj1 = new TestObject(1);
-        $obj2 = new TestObject(2);
-        $obj3 = new TestObject(3);
-
-        $objects->attach($obj1);
-        $objects->attach($obj2);
-        $objects->attach($obj3);
-
-        return array(
-            array(
-                new SplObjectStorage(),
-                array(),
-            ),
-            array(
-                $objects,
-                array(1 => $obj1, 2 => $obj2, 3 => $obj3),
-            ),
-        );
-    }
-
-    /**
-     * @covers CL\Util\Objects::index
-     * @dataProvider dataIndex
-     */
-    public function testIndex($objects, $expected)
-    {
-        $this->assertSame($expected, Objects::index($objects, 'id'));
-    }
-
     public function dataFilter()
     {
         $callback = function ($item) {
