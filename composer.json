@@ -1,5 +1,5 @@
 {
-    "name": "clippings/util",
+    "name": "harp-orm/util",
     "description": "General purpose helper methods",
     "license": "BSD-3-Clause",
     "authors": [
