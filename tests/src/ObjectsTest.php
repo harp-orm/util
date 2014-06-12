@@ -11,8 +11,12 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     public function dataMap()
     {
         $objects = new SplObjectStorage();
-        $objects->attach(new TestObject(1), new TestObject(2));
-        $objects->attach(new TestObject(3), new TestObject(4));
+        $objects->attach(new TestObject(1));
+        $objects->attach(new TestObject(3));
+
+        $objects2 = new SplObjectStorage();
+        $objects2->attach(new TestObject(1), new TestObject(2));
+        $objects2->attach(new TestObject(3), new TestObject(4));
 
         return array(
             array(
@@ -30,7 +34,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
                 array(1, 3),
             ),
             array(
-                $objects,
+                $objects2,
                 function ($obj, $info) {
                     return $obj->id.'-'.$info->id;
                 },
