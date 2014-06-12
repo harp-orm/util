@@ -8,6 +8,46 @@ use PHPUnit_Framework_TestCase;
 
 class ObjectsTest extends PHPUnit_Framework_TestCase
 {
+    public function dataMap()
+    {
+        $objects = new SplObjectStorage();
+        $objects->attach(new TestObject(1), new TestObject(2));
+        $objects->attach(new TestObject(3), new TestObject(4));
+
+        return array(
+            array(
+                new SplObjectStorage(),
+                function ($obj, $info) {
+                    return $obj->id.'-'.$info->id;
+                },
+                array(),
+            ),
+            array(
+                $objects,
+                function ($obj) {
+                    return $obj->id;
+                },
+                array(1, 3),
+            ),
+            array(
+                $objects,
+                function ($obj, $info) {
+                    return $obj->id.'-'.$info->id;
+                },
+                array('1-2', '3-4'),
+            )
+        );
+    }
+
+    /**
+     * @covers Harp\Util\Objects::map
+     * @dataProvider dataMap
+     */
+    public function testMap($array, $closure, $expected)
+    {
+        $this->assertSame($expected, Objects::map($array, $closure));
+    }
+
     public function dataInvoke()
     {
         $objects = new SplObjectStorage();

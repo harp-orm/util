@@ -30,6 +30,22 @@ class Objects
 
     /**
      * @param  SplObjectStorage $storage
+     * @param  Closure          $closure
+     * @return array
+     */
+    public static function map(SplObjectStorage $storage, Closure $closure)
+    {
+        $result = array();
+
+        foreach ($storage as $object) {
+            $result []= $closure($object, $storage->getInfo());
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param  SplObjectStorage $storage
      * @param  Closure          $filter
      * @return SplObjectStorage
      */
