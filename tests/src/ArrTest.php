@@ -5,6 +5,13 @@ namespace Harp\Util\Test;
 use Harp\Util\Arr;
 use PHPUnit_Framework_TestCase;
 
+/**
+ * @coversDefaultClass Harp\Util\Arr
+ *
+ * @author     Ivan Kerin <ikerin@gmail.com>
+ * @copyright  (c) 2014 Clippings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
+ */
 class ArrTest extends PHPUnit_Framework_TestCase
 {
     public function dataToAssoc()
@@ -34,7 +41,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Arr::toAssoc
+     * @covers ::toAssoc
      * @dataProvider dataToAssoc
      */
     public function testToAssoc($array, $expected)
@@ -64,7 +71,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Arr::invoke
+     * @covers ::invoke
      * @dataProvider dataInvoke
      */
     public function testInvoke($array, $methodName, $expected)
@@ -94,7 +101,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Arr::pluckProperty
+     * @covers ::pluckProperty
      * @dataProvider dataPluckProperty
      */
     public function testPluckProperty($array, $property, $expected)
@@ -124,7 +131,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Arr::pluckUniqueProperty
+     * @covers ::pluckUniqueProperty
      * @dataProvider dataPluckUniqueProperty
      */
     public function testPluckUniqueProperty($array, $property, $expected)
@@ -149,7 +156,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Arr::pluck
+     * @covers ::pluck
      * @dataProvider dataPluck
      */
     public function testPluck($array, $property, $expected)
@@ -182,7 +189,7 @@ class ArrTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Arr::flatten
+     * @covers ::flatten
      * @dataProvider dataFlatten
      */
     public function testFlatten($array, $expected)

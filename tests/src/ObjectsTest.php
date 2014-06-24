@@ -6,6 +6,13 @@ use Harp\Util\Objects;
 use SplObjectStorage;
 use PHPUnit_Framework_TestCase;
 
+/**
+ * @coversDefaultClass Harp\Util\Objects
+ *
+ * @author     Ivan Kerin <ikerin@gmail.com>
+ * @copyright  (c) 2014 Clippings Ltd.
+ * @license    http://spdx.org/licenses/BSD-3-Clause
+ */
 class ObjectsTest extends PHPUnit_Framework_TestCase
 {
     public function dataMap()
@@ -44,7 +51,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Objects::map
+     * @covers ::map
      * @dataProvider dataMap
      */
     public function testMap($array, $closure, $expected)
@@ -78,7 +85,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Objects::invoke
+     * @covers ::invoke
      * @dataProvider dataInvoke
      */
     public function testInvoke($array, $methodName, $expected)
@@ -120,7 +127,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Objects::filter
+     * @covers ::filter
      * @dataProvider dataFilter
      */
     public function testFilter($objects, $callback, $expected)
@@ -129,7 +136,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Objects::toArray
+     * @covers ::toArray
      */
     public function testToArray()
     {
@@ -164,7 +171,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers Harp\Util\Objects::groupBy
+     * @covers ::groupBy
      */
     public function testGroupBy()
     {
