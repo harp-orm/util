@@ -64,17 +64,40 @@ class Objects
 
     /**
      * @param  SplObjectStorage $storage
+     * @param  Closure          $filter
+     * @return SplObjectStorage
+     */
+    public static function sort(SplObjectStorage $storage, Closure $filter)
+    {
+        $array = iterator_to_array($storage);
+
+        usort($array, $filter);
+
+        return Objects::fromArray($array);
+    }
+
+    /**
+     * @param  SplObjectStorage $storage
      * @return array
      */
     public static function toArray(SplObjectStorage $storage)
     {
-        $items = array();
+        return iterator_to_array($storage);
+    }
 
-        foreach ($storage as $item) {
-            $items []= $item;
+    /**
+     * @param  array            $array
+     * @return SplObjectStorage
+     */
+    public static function fromArray(array $array)
+    {
+        $objects = new SplObjectStorage();
+
+        foreach ($array as $object) {
+            $objects->attach($object);
         }
 
-        return $items;
+        return $objects;
     }
 
     /**

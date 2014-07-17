@@ -61,9 +61,7 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
 
     public function dataInvoke()
     {
-        $objects = new SplObjectStorage();
-        $objects->attach(new TestObject());
-        $objects->attach(new TestObject());
+        $objects = Objects::fromArray(array(new TestObject(), new TestObject()));
 
         return array(
             array(
@@ -99,18 +97,9 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
             return $item->id == 1;
         };
 
-        $objects = new SplObjectStorage();
         $obj1 = new TestObject(1);
         $obj2 = new TestObject(2);
         $obj3 = new TestObject(1);
-
-        $objects->attach($obj1);
-        $objects->attach($obj2);
-        $objects->attach($obj3);
-
-        $result = new SplObjectStorage();
-        $result->attach($obj1);
-        $result->attach($obj3);
 
         return array(
             array(
@@ -119,9 +108,9 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
                 new SplObjectStorage(),
             ),
             array(
-                $objects,
+                Objects::fromArray(array($obj1, $obj2, $obj3)),
                 $callback,
-                $result,
+                Objects::fromArray(array($obj1, $obj3)),
             ),
         );
     }
@@ -136,18 +125,54 @@ class ObjectsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::toArray
+     * @covers ::Sort
      */
-    public function testToArray()
+    public function testSort()
     {
-        $objects = new SplObjectStorage();
+        $obj1 = new TestObject(5);
+        $obj2 = new TestObject(10);
+        $obj3 = new TestObject(32);
+
+        $objects = Objects::fromArray(array($obj1, $obj3, $obj2));
+
+        $sorted = Objects::sort($objects, function ($item1, $item2) {
+            return $item1->id - $item2->id;
+        });
+
+        $sortedArray = iterator_to_array($sorted);
+
+        $this->assertSame(array($obj1, $obj2, $obj3), $sortedArray);
+    }
+
+    /**
+     * @covers ::fromArray
+     */
+    public function testFromArray()
+    {
         $obj1 = new TestObject(1);
         $obj2 = new TestObject(2);
         $obj3 = new TestObject(1);
 
-        $objects->attach($obj1);
-        $objects->attach($obj2);
-        $objects->attach($obj3);
+        $expected = new SplObjectStorage();
+        $expected->attach($obj1);
+        $expected->attach($obj2);
+        $expected->attach($obj3);
+
+        $array = array($obj1, $obj2, $obj3);
+
+        $this->assertEquals($expected, Objects::fromArray($array));
+    }
+
+    /**
+     * @covers ::toArray
+     */
+    public function testToArray()
+    {
+        $obj1 = new TestObject(1);
+        $obj2 = new TestObject(2);
+        $obj3 = new TestObject(1);
+
+        $objects = Objects::fromArray(array($obj1, $obj2, $obj3));
 
         $expected = array($obj1, $obj2, $obj3);
 

@@ -24,6 +24,8 @@ SplObjectStorage Helpers
 - __Objects::invoke__ - aggregate the results of a method call on all the objects
 - __Objects::filter__ - similar to array_filter, but for SplObjectStorage
 - __Objects::toArray__ - convert SplObjectStorage into an array
+- __Objects::fromArray__ - convert an array into a SplObjectStorage
+- __Objects::sort__ - sort a SplObjectStorage using a comparation closure
 - __Objects::groupBy__ - change SplObjectStorage where the "key" object is the result of a callback, and all the other objects are grouped by them
 
 ## License
